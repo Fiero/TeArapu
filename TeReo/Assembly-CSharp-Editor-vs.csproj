@@ -46,6 +46,16 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\GAF\Scripts\Asset\Editor\GAFAnimationAssetEditor.cs" />
+     <Compile Include="Assets\GAF\Scripts\Asset\Editor\GAFAssetPostProcessor.cs" />
+     <Compile Include="Assets\GAF\Scripts\Asset\Editor\GAFResourceEditor.cs" />
+     <Compile Include="Assets\GAF\Scripts\Asset\Editor\GAFResourceManager.cs" />
+     <Compile Include="Assets\GAF\Scripts\Core\Editor\GAFBaseMovieClipEditor.cs" />
+     <Compile Include="Assets\GAF\Scripts\Core\Editor\GAFConverterWindowListener.cs" />
+     <Compile Include="Assets\GAF\Scripts\Core\Editor\GAFMovieClipEditor.cs" />
+     <Compile Include="Assets\GAF\Scripts\Core\Editor\GAFObjectsManagerEditor.cs" />
+     <Compile Include="Assets\GAF\Scripts\Objects\Editor\GAFBakedObjectControllerEditor.cs" />
+     <Compile Include="Assets\GAF\Scripts\Objects\Editor\GAFObjectEditor.cs" />
      <Compile Include="Assets\NGUI\Examples\Scripts\InventorySystem\Editor\InvDatabaseInspector.cs" />
      <Compile Include="Assets\NGUI\Examples\Scripts\InventorySystem\Editor\InvFindItem.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\ActiveAnimationEditor.cs" />
@@ -135,10 +145,14 @@
      <None Include="Assets\NGUI\Examples\Models\Orc\Orc Skin.shader" />
      <None Include="Assets\NGUI\Examples\Atlases\Wooden\Arimo20.txt" />
      <None Include="Assets\NGUI\Examples\Atlases\Wooden\Arimo14.txt" />
+     <None Include="Assets\GAF\Resources\Shaders\GAFShaderBase.cginc" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text 1.shader" />
+     <None Include="Assets\GAF\Resources\Shaders\GAFObjectsGroup.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored 2.shader" />
+     <None Include="Assets\GAF\Docs\What&apos;s new.txt" />
      <None Include="Assets\NGUI\Examples\Shaders\Unlit - Masked Colored.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 3.shader" />
+     <None Include="Assets\GAF\Resources\Shaders\GAFMaskedObject.shader" />
      <None Include="Assets\NGUI\Examples\Atlases\Wooden\Arimo18.txt" />
      <None Include="Assets\NGUI\Examples\Atlases\SciFi\SciFi Font - Header.txt" />
      <None Include="Assets\_Fonts\ArialMaoriMacron.txt" />
@@ -165,8 +179,10 @@
      <None Include="Assets\NGUI\Examples\Shaders\Unlit - Depth.shader" />
      <None Include="Assets\NGUI\Examples\Atlases\SciFi\SciFi Font - Normal.txt" />
      <None Include="Assets\_Wordlists\Wordlist_Rearrange.txt" />
+     <None Include="Assets\GAF\Resources\Shaders\GAFMaskObject.shader" />
      <None Include="Assets\NGUI\Examples\Models\Orc Armor\Orc Armor.shader" />
      <None Include="Assets\NGUI\Examples\Resources\Localization.txt" />
+     <None Include="Assets\GAF\Docs\Readme.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -175,6 +191,21 @@
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.Graphs.dll</HintPath>
+ </Reference>
+ <Reference Include="GAF">
+ <HintPath>/Users/mauriziofrances/Documents/Work/Fiero/TeReo/Unity/TeReo/Assets/GAF/Plugins/GAF.dll</HintPath>
+ </Reference>
+ <Reference Include="GAFEditor">
+ <HintPath>/Users/mauriziofrances/Documents/Work/Fiero/TeReo/Unity/TeReo/Assets/GAF/Plugins/Editor/GAFEditor.dll</HintPath>
+ </Reference>
+ <Reference Include="Ionic.Zip.Reduced">
+ <HintPath>/Users/mauriziofrances/Documents/Work/Fiero/TeReo/Unity/TeReo/Assets/GAF/Plugins/Ionic.Zip.Reduced.dll</HintPath>
+ </Reference>
+ <Reference Include="MiniJson">
+ <HintPath>/Users/mauriziofrances/Documents/Work/Fiero/TeReo/Unity/TeReo/Assets/GAF/Plugins/Editor/MiniJson.dll</HintPath>
+ </Reference>
+ <Reference Include="GAFConverter">
+ <HintPath>/Users/mauriziofrances/Documents/Work/Fiero/TeReo/Unity/TeReo/Assets/GAF/Plugins/Editor/GAFConverter.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
