@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 
+using GAF.Core;
+
 public class Game_UIManager : MonoBehaviour {
 
 	public GameObject Screen_Pause;
@@ -20,6 +22,14 @@ public class Game_UIManager : MonoBehaviour {
 	public Transform pregameImagesParent;
 	public List<GameObject> pregameImagesArray;
 
+	public Transform winAnimationsParent;
+	public List<GameObject> winAnimationsArray;
+
+	public Transform loseAnimationsParent;
+	public List<GameObject> loseAnimationsArray;
+
+	public GameObject imageBorders;
+
 	//-------------------------------------------------------------------------------------------------------------------------
 	private bool updateScore = false;
 	public float scoreUpdateDuration = 1.0f; // in sec
@@ -33,6 +43,8 @@ public class Game_UIManager : MonoBehaviour {
 	
 	void Awake(){
 		GetAllPregameImages ();
+		GetAllWinAnimations ();
+		GetAllLoseAnimations ();
 	}
 
 	// Use this for initialization
@@ -76,6 +88,7 @@ public class Game_UIManager : MonoBehaviour {
 	}
 
 	public void DisableAllPregameImages(){
+		imageBorders.SetActive (false);
 		foreach(GameObject pregame in pregameImagesArray)
 		{
 			pregame.SetActive(false);
@@ -92,6 +105,63 @@ public class Game_UIManager : MonoBehaviour {
 	public void ActivatePregameImage(int pregameNumber){
 		DisableAllPregameImages();
 		pregameImagesArray[pregameNumber].SetActive(true);
+		imageBorders.SetActive (true);
+	}
+
+//-------------------------------------------------------------------------------------------------------------------------
+
+	void GetAllWinAnimations()
+	{
+		foreach (Transform child in winAnimationsParent){
+			print("Foreach loop: " + child);
+			winAnimationsArray.Add(child.gameObject);
+		}
+		
+	}
+	
+	void GetAllLoseAnimations()
+	{
+		foreach (Transform child in loseAnimationsParent){
+			print("Foreach loop: " + child);
+			loseAnimationsArray.Add(child.gameObject);
+		}
+		
+	}
+
+	public void ActivateAnimation(bool isWin, int animNumber){
+		imageBorders.SetActive (true);
+		if (isWin) {
+			winAnimationsArray[animNumber].SetActive(true);
+				}
+		else{
+			loseAnimationsArray[animNumber].SetActive(true);
+			}
+	}
+
+	public GameObject GetCurrentAnimation(bool isWin, int animNumber){
+		GameObject tempAnim;
+		if (isWin) {
+			tempAnim = winAnimationsArray[animNumber];
+		}
+		else{
+			tempAnim = loseAnimationsArray[animNumber];
+		}
+
+		return tempAnim;
+	}
+	
+
+	public void DisableAllAnims(){
+		imageBorders.SetActive (false);
+		foreach(GameObject anim in winAnimationsArray)
+		{
+			anim.SetActive(false);
+		}
+
+		foreach(GameObject anim in loseAnimationsArray)
+		{
+			anim.SetActive(false);
+		}
 	}
 
 //-------------------------------------------------------------------------------------------------------------------------

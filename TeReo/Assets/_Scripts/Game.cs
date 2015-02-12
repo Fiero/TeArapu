@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
+using GAF.Core;
+
 public class Game : MonoBehaviour
 {
 	//-------------------------------------------------------------------------------------------------------------------------
@@ -49,6 +51,7 @@ public class Game : MonoBehaviour
 	private float currentPregameCountdown;
 
 	private int currentMinigameNumber;
+	private GAFMovieClip movieClip;
 
 
 
@@ -162,6 +165,30 @@ public class Game : MonoBehaviour
 
 	}
 
+	void ShowAnimation(bool isWin){
+		GameObject tempAnim;
+
+
+		StateId = EGameState.Anim;
+		//Script_UIManager.ActivateAnimation (isWin, (currentMinigameNumber - 1));
+		//tempAnim = Script_UIManager.GetCurrentAnimation(isWin, (currentMinigameNumber - 1));
+
+		Script_UIManager.ActivateAnimation (isWin, (0));
+		tempAnim = Script_UIManager.GetCurrentAnimation(isWin, (0));
+
+		movieClip = tempAnim.GetComponent<GAFMovieClip> ();
+		movieClip.on_stop_play += AnimCallback;
+		}
+
+	private void AnimCallback(IGAFMovieClip _Clip)
+	{
+		print ("FINISHED PLAYING");
+		movieClip.on_stop_play -= AnimCallback;
+		Script_UIManager.DisableAllAnims ();
+		StateId = EGameState.Result;
+		Script_UIManager.ResultScreenShow ();
+	}
+
 
 
 	public void QuitToMainMenu(){
@@ -217,9 +244,10 @@ public class Game : MonoBehaviour
 		//print("ADD ME:" + Mathf.Round((100+(currentGameCountdown*10))));
 
 		//
-		Script_UIManager.ResultScreenShow();
-		StateId = EGameState.Result;
+	//	Script_UIManager.ResultScreenShow();
+	//	StateId = EGameState.Result;
 		//Go to win animation instead, THEN result screen.
+		ShowAnimation (true);
 
 		NextMiniGameSetup();
 	} 
@@ -233,9 +261,10 @@ public class Game : MonoBehaviour
 		LoseLife();
 
 		//
-		StateId = EGameState.Result;
-		Script_UIManager.ResultScreenShow();
+	//	StateId = EGameState.Result;
+	//	Script_UIManager.ResultScreenShow();
 		//Go to lose animation instead, THEN result screen.
+		ShowAnimation (false);
 
 		if(currentLives>0){
 			NextMiniGameSetup();
