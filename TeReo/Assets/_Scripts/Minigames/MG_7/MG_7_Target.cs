@@ -9,13 +9,17 @@ public class MG_7_Target : MonoBehaviour {
 	private Rigidbody rb;
 
 	public Vector3 moveDir;
-	private float speed = 0.3f;
+	private float speed = 0.2f;
 
 	private Collider lastHitCollider;
+
+	public Vector3 startingPosition;
 
 	void Awake(){
 		label = this.GetComponentInChildren<UILabel>();
 		rb = this.rigidbody;
+
+		startingPosition = this.transform.position;
 	}
 
 	// Use this for initialization
@@ -45,7 +49,7 @@ public class MG_7_Target : MonoBehaviour {
 
 
 
-		if ( Physics.Raycast(ray, out hit, Time.deltaTime * speed *5) ){
+		if ( Physics.Raycast(ray, out hit, Time.deltaTime * speed *30) ){
 
 			if(hit.collider.tag == "FishBounceWall"){
 
@@ -94,8 +98,10 @@ public class MG_7_Target : MonoBehaviour {
 
 		//Random.Range()
 		this.gameObject.SetActive(true);
-		this.transform.position = new Vector3(0f,0f,0f);
+		//this.transform.position = new Vector3(0f,0f,0f);
+		this.transform.position = startingPosition;
 	}
+
 
 	void OnTriggerExit(Collider other) {
         //Destroy(other.gameObject);

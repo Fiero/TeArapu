@@ -101,7 +101,7 @@ public class Game_MinigameManager : MonoBehaviour {
 		for(int i=0; i<roundLength; i++){
 			AddMinigameToRoundList();
 
-			//minigameRoundList.Add(5);
+			//minigameRoundList.Add(7);
 		}
 
 		PrintRoundList();

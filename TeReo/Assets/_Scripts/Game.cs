@@ -75,6 +75,7 @@ public class Game : MonoBehaviour
 		Script_MinigameManager = this.GetComponent<Game_MinigameManager>();
 
 		// Setup the UI elements properly
+		Script_UIManager.GameplayScreenHide ();
 		Script_UIManager.PauseScreenHide();
 		Script_UIManager.ResultScreenHide();
 		Script_UIManager.GameoverScreenHide();
@@ -168,7 +169,7 @@ public class Game : MonoBehaviour
 	void ShowAnimation(bool isWin){
 		GameObject tempAnim;
 
-
+		Script_UIManager.GameplayScreenHide ();
 		StateId = EGameState.Anim;
 		//Script_UIManager.ActivateAnimation (isWin, (currentMinigameNumber - 1));
 		//tempAnim = Script_UIManager.GetCurrentAnimation(isWin, (currentMinigameNumber - 1));
@@ -290,12 +291,14 @@ public class Game : MonoBehaviour
 				Debug.Log("Game: Toggle to Pause");
 				Script_UIManager.PauseScreenShow();
 				StateId = EGameState.Pause;
+				Time.timeScale = 0f;
 			break;
 
 			case EGameState.Pause:
 				Debug.Log("Game: Toggle from Pause");
 				Script_UIManager.PauseScreenHide();
 				StateId = EGameState.Play;
+				Time.timeScale = 1f;
 			break;
 
 			default:
@@ -380,6 +383,7 @@ public class Game : MonoBehaviour
 			//Move on to the actual game.
 
 			Script_UIManager.DisableAllPregameImages();
+			Script_UIManager.GameplayScreenShow ();
 
 			Script_MinigameManager.StartMinigame (); //Activates game.
 			

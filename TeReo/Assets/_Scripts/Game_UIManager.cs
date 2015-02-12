@@ -6,6 +6,7 @@ using GAF.Core;
 
 public class Game_UIManager : MonoBehaviour {
 
+	public GameObject Screen_Gameplay;
 	public GameObject Screen_Pause;
 	public GameObject Screen_Result;
 	public GameObject Screen_Gameover;
@@ -165,6 +166,14 @@ public class Game_UIManager : MonoBehaviour {
 	}
 
 //-------------------------------------------------------------------------------------------------------------------------
+	public void GameplayScreenShow(){
+		Screen_Gameplay.SetActive(true);
+	}
+	
+	public void GameplayScreenHide(){
+		Screen_Gameplay.SetActive(false);
+	}
+
 	public void PauseScreenShow(){
 		Screen_Pause.SetActive(true);
 	}
