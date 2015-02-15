@@ -39,8 +39,10 @@ public class Game : MonoBehaviour
 	private int currentLives = 3;
 
 	//Game timer
-	public float maxGameCountdown = 10;
-	private float currentGameCountdown;
+	public float maxGameCountdown = 10; //The longest/starting time that a minigame can last.
+	public float minGameCountdown = 3; //The minimum time that a minigame can last.
+	private float currentMaxGameCountdown; //The current max length of a minigame.
+	private float currentGameCountdown; // The current time of the minigame.
 
 	//Result screen timer
 	public float maxResultCountdown = 3;

@@ -259,6 +259,7 @@
      <None Include="Assets\_Wordlists\Wordlist_Names.txt" />
      <None Include="Assets\_Wordlists\Wordlist_Bubbles.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored 1.shader" />
+     <None Include="Assets\_Fonts\Arial-Bold-100-MaoriMacron\Arial-Bold-100-MaoriMacron.txt" />
      <None Include="Assets\NGUI\Examples\Atlases\Fantasy\Fantasy Font - Normal.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored 3.shader" />
      <None Include="Assets\NGUI\Examples\Atlases\Refractive\Refractive Font - Normal.txt" />
